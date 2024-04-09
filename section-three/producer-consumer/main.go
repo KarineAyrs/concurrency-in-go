@@ -86,7 +86,7 @@ func pizzeria(pizzaMaker *Producer) {
 			// we tried to make a pizza (we sent something to the data channel)
 			case pizzaMaker.data <- *currentPizza:
 			case quitChan := <-pizzaMaker.quit:
-				// close channels
+				// close simple-channels
 				close(pizzaMaker.data)
 				close(quitChan)
 				return
